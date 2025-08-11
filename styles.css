@@ -1,0 +1,26 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vmin;   
+  height: 80vmin;  
+  margin: auto;
+  background-color: lightblue;
+}
+
+.cell {
+  flex: 0 0 calc(100% / 16);
+  aspect-ratio: 1 / 1;
+  background-color:lightgray;
+  
+}
