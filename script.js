@@ -7,7 +7,9 @@ repeat();
 function repeat() {
     parent.innerHTML = "";
 
-    let num = parseInt(prompt("Enter number of cells per row (between 1 and 100)"));
+    let num = parseInt(prompt("Enter number of cells per row (between 1 and 100)"), 10);
+    if (!num || num < 1) num = 1;
+    if (num > 100) num = 100;
 
     for (let i = 0; i < num * num; i++) {
         let cell = document.createElement("div");
@@ -20,7 +22,14 @@ function repeat() {
 }
 
 parent.addEventListener('mouseover', (event) => {
-    if (event.target.classList.contains('cell')) {
-        event.target.style.backgroundColor = 'yellow';
-    }
+    const cell = event.target;
+    if (!cell.classList || !cell.classList.contains('cell')) return;
+    cell.style.backgroundColor = 'yellow';
 });
+
+parent.addEventListener('click', (event) => {
+    const cell = event.target;
+    if (!cell.classList || !cell.classList.contains('cell')) return;
+    cell.style.backgroundColor = 'lightgray';
+});
+
